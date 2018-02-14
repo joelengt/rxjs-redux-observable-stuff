@@ -2,35 +2,28 @@
 /** > Basic event */
 
 // normal event
-/*
 var button = document.querySelector('button');
 button.addEventListener('click', () => console.log('Clicked!'));
-*/
 
 // With RxJS:
-/*
 Rx.Observable.fromEvent(button, 'click')
    .subscribe(() => console.log('Clicked!'));
-*/
 
 /**
  * Purity
  */
 
 // normal
-/*
 var count = 0;
 var button = document.querySelector('button');
 button.addEventListener('click', () => console.log(`Clicked ${++count} times`));
-*/
 
 // Using RxJS you isolate the state.
 
-/*var button = document.querySelector('button');
+var button = document.querySelector('button');
 Rx.Observable.fromEvent(button, 'click')
   .scan(count => count + 1, 0) // (event function , initial value)
   .subscribe(count => console.log(`Clicked ${count} times`));
-*/
 
 // * scan operator works just like reduce for arrars
 
@@ -42,7 +35,6 @@ Rx.Observable.fromEvent(button, 'click')
 //  how you would allow at most one click per second, with plain JavaScript
 
 // normal
-/*
 var count = 0;
 var rate = 1000;
 var lastClick = Date.now() - rate;
@@ -53,7 +45,6 @@ button.addEventListener('click', () => {
     lastClick = Date.now();
   }
 });
-*/
 
 // With RxJS:
 var button = document.querySelector('button');
